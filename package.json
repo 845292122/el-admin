@@ -1,0 +1,47 @@
+{
+  "name": "mmvn-view",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "comment": "下面的代码锁jiti版本用来解决unocss异常, 参考 https://github.com/unocss/unocss/issues/3869",
+  "pnpm": {
+    "overrides": {
+      "jiti": "1.21.0"
+    }
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "element-plus": "^2.7.6",
+    "jsencrypt": "^3.3.2",
+    "lodash": "^4.17.21",
+    "nprogress": "^0.2.0",
+    "pinia": "^2.1.7",
+    "vue": "^3.4.21",
+    "vue-router": "^4.4.0"
+  },
+  "devDependencies": {
+    "@iconify-json/bi": "^1.1.23",
+    "@iconify/vue": "^4.1.2",
+    "@unocss/eslint-config": "^0.61.0",
+    "@unocss/preset-rem-to-px": "^0.61.0",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "eslint": "^9.5.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-vue": "^9.26.0",
+    "prettier": "^3.3.2",
+    "sass": "^1.77.6",
+    "unocss": "^0.61.0",
+    "unplugin-auto-import": "^0.17.6",
+    "unplugin-icons": "^0.19.0",
+    "unplugin-vue-components": "^0.27.0",
+    "unplugin-vue-setup-extend-plus": "^1.0.1",
+    "vite": "^5.2.0",
+    "vite-plugin-compression": "^0.5.1"
+  }
+}
