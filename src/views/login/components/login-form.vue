@@ -74,8 +74,8 @@ function initLoginInfo() {
 
 <template>
   <div flex justify-center items-center h-full>
-    <el-form ref="loginRef" :model="loginForm" :rules="loginRules" w-full p-15>
-      <h2 text-center mb-5 text-size-2xl>{{ title }}</h2>
+    <el-form ref="loginRef" :model="loginForm" :rules="loginRules" w-full p-60>
+      <h2 text-center mb-20 text-20>{{ title }}</h2>
       <el-form-item prop="phone">
         <el-input
           v-model="loginForm.phone"

@@ -6,9 +6,9 @@ import LoginForm from './components/login-form'
 
 <template>
   <div wh-full flex>
-    <div min-w-200 min-h-100 m-a card-shadow bg-white flex z-1000>
+    <div min-w-800 min-h-400 m-a card-shadow bg-white flex z-1000>
       <div class="login-illustration" flex justify-center items-center flex-1>
-        <img w-70 :src="loginIll" alt="login-ill" />
+        <img w-280 :src="loginIll" alt="login-ill" />
       </div>
       <div flex-1>
         <LoginForm />

@@ -12,7 +12,7 @@ export default defineConfig({
         display: 'inline-block',
       },
     }),
-    presetRemToPx(),
+    presetRemToPx({ baseFontSize: 4 }),
   ],
   shortcuts: [
     ['wh-full', 'w-full h-full'],

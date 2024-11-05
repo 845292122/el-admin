@@ -9,8 +9,8 @@ const appStore = useAppStore()
     f-c-c
     cursor-pointer
     rounded-2
-    p-2
-    text-6
+    p-8
+    text-24
     transition-all-300
     auto-bg-hover
     @click="appStore.toggleMenuCollapsed"

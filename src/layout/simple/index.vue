@@ -11,7 +11,7 @@ const appStore = useAppStore()
       flex-col
       flex-shrink-0
       transition-width-300
-      :class="appStore.menuCollapsed ? 'w-16' : 'w-55'"
+      :class="appStore.menuCollapsed ? 'w-64' : 'w-220'"
       class="aside-wrapper"
     >
       <Sidebar />

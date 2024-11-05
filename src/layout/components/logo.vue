@@ -7,14 +7,14 @@ const title = import.meta.env.VITE_APP_TITLE
 </script>
 
 <template>
-  <div flex justify-center items-center f-c-c h-14>
+  <div flex justify-center items-center f-c-c h-56>
     <img :src="Logo" alt="logo" />
     <h2
       v-show="!appStore.menuCollapsed"
-      ml-2
-      max-w-30
+      ml-8
+      max-w-120
       flex-shrink-0
-      text-4
+      text-16
       color-primary
       font-bold
     >
