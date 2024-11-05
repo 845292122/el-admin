@@ -17,8 +17,8 @@ export const useAuthStore = defineStore('authStore', {
         $AuthApi
           .login({ phone, password })
           .then((res) => {
-            TokenUtil.setToken(res.data)
-            this.token = res.data
+            TokenUtil.setToken(res)
+            this.token = res
             resolve()
           })
           .catch((error) => {
@@ -31,8 +31,8 @@ export const useAuthStore = defineStore('authStore', {
         $AuthApi
           .getInfo()
           .then((res) => {
-            this.info = res.data
-            const { isAdmin } = res.data
+            this.info = res
+            const { isAdmin } = res
             const cloneRoutes = cloneDeep(dynamicRoutes)
             const permRoutes = RouteUtil.filterAuthRoutes(cloneRoutes, isAdmin)
             this.permRoutes = permRoutes

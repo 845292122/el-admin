@@ -39,7 +39,7 @@ export default defineConfig(({ mode, command }) => {
       open: false,
       proxy: {
         [env.VITE_APP_BASE_API]: {
-          target: 'http://localhost:8080',
+          target: 'http://localhost:3000',
           changeOrigin: true,
           ws: true,
           rewrite: (path) =>
