@@ -24,14 +24,14 @@ rbO3d51lkgU=
  *  decrypt: 解密
  */
 export const jscrypt = {
-  encrypt: (txt) => {
+  encrypt: txt => {
     const encryptor = new JSEncrypt()
     encryptor.setPublicKey(publicKey) // 设置公钥
     return encryptor.encrypt(txt) // 加密文本
   },
-  decrypt: (txt) => {
+  decrypt: txt => {
     const encryptor = new JSEncrypt()
     encryptor.setPrivateKey(privateKey) // 设置私钥
     return encryptor.decrypt(txt) // 解密文本
-  },
+  }
 }

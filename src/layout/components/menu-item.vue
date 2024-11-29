@@ -3,18 +3,15 @@ import { Icon } from '@iconify/vue'
 const props = defineProps({
   menuList: {
     type: Array,
-    require: true,
-  },
+    require: true
+  }
 })
 </script>
 
 <template>
   <template v-for="item in props.menuList" :key="item.path">
     <!-- 有子菜单 -->
-    <el-sub-menu
-      :index="item.path"
-      v-if="item.children && item.children.length > 0"
-    >
+    <el-sub-menu :index="item.path" v-if="item.children && item.children.length > 0">
       <template #title v-if="item.meta.icon">
         <el-icon>
           <Icon :icon="item.meta.icon" />

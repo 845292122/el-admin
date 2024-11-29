@@ -5,33 +5,33 @@ export const staticRoutes = [
     component: () => import('@/views/login/index.vue'),
     meta: {
       title: '登录',
-      layout: 'blank',
-    },
+      layout: 'blank'
+    }
   },
   {
     name: 'Home',
     path: '/',
     component: () => import('@/views/home/index.vue'),
     meta: {
-      title: '首页',
-    },
+      title: '首页'
+    }
   },
   {
     name: 'Profile',
     path: '/profile',
     component: () => import('@/views/profile/index.vue'),
     meta: {
-      title: '账户资料',
-    },
+      title: '账户资料'
+    }
   },
   {
     name: '404',
     path: '/404',
     component: () => import('@/views/error/404.vue'),
     meta: {
-      title: '页面飞走了',
-    },
-  },
+      title: '页面飞走了'
+    }
+  }
 ]
 
 export const dynamicRoutes = [
@@ -42,7 +42,7 @@ export const dynamicRoutes = [
     requireAdmin: true,
     meta: {
       title: '系统管理',
-      icon: 'bi:gear-fill',
+      icon: 'bi:gear-fill'
     },
     children: [
       {
@@ -52,9 +52,9 @@ export const dynamicRoutes = [
         requireAdmin: true,
         meta: {
           title: '账户管理',
-          icon: 'bi:person-vcard-fill',
-        },
-      },
-    ],
-  },
+          icon: 'bi:person-vcard-fill'
+        }
+      }
+    ]
+  }
 ]

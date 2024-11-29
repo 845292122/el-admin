@@ -10,7 +10,7 @@ function logout() {
   ElMessageBox.confirm('确认退出登录?', '提示', {
     confirmButtonText: '确认',
     cancelButtonText: '取消',
-    type: 'warning',
+    type: 'warning'
   })
     .then(() => {
       authStore.logout()
@@ -26,16 +26,11 @@ function goProfile() {
 
 <template>
   <el-dropdown w-full>
-    <el-avatar
-      src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
-      v-if="appStore.menuCollapsed"
-    />
+    <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" v-if="appStore.menuCollapsed" />
 
     <div v-else flex cursor-pointer items-center w-full justify-between>
       <div flex items-center>
-        <el-avatar
-          src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
-        />
+        <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
         <div flex-col flex-shrink-0 pl-8>
           <span text-14 mt-5>super</span>
           <span text-12 mt-2>merchant-name</span>

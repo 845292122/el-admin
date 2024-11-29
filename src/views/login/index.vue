@@ -21,11 +21,6 @@ import LoginForm from './components/login-form'
 <style lang="scss" scoped>
 .login-illustration {
   background: rgb(0, 78, 167);
-  background: linear-gradient(
-    39deg,
-    rgba(0, 78, 167, 1) 0%,
-    rgba(2, 119, 252, 1) 29%,
-    rgba(178, 214, 255, 1) 100%
-  );
+  background: linear-gradient(39deg, rgba(0, 78, 167, 1) 0%, rgba(2, 119, 252, 1) 29%, rgba(178, 214, 255, 1) 100%);
 }
 </style>

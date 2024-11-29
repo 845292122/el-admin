@@ -2,11 +2,11 @@ export const _localStorage = {
   setItem: (key, value, expire) => {
     const data = {
       value: value,
-      expire: expire ? Date.now() + expire : null,
+      expire: expire ? Date.now() + expire : null
     }
     localStorage.setItem(key, JSON.stringify(data))
   },
-  getItem: (key) => {
+  getItem: key => {
     const data = JSON.parse(localStorage.getItem(key))
     if (!data) return null
 
@@ -16,20 +16,20 @@ export const _localStorage = {
     }
     return data.value
   },
-  removeItem: (key) => {
+  removeItem: key => {
     localStorage.removeItem(key)
-  },
+  }
 }
 
 export const _sessionStorage = {
   setItem: (key, value, expire) => {
     const data = {
       value: value,
-      expire: expire ? Date.now() + expire : null,
+      expire: expire ? Date.now() + expire : null
     }
     sessionStorage.setItem(key, JSON.stringify(data))
   },
-  getItem: (key) => {
+  getItem: key => {
     const data = JSON.parse(sessionStorage.getItem(key))
     if (!data) return null
 
@@ -39,7 +39,7 @@ export const _sessionStorage = {
     }
     return data.value
   },
-  removeItem: (key) => {
+  removeItem: key => {
     sessionStorage.removeItem(key)
-  },
+  }
 }

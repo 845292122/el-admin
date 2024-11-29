@@ -8,18 +8,7 @@ const route = useRoute()
   <div h-full flex-1 overflow-hidden>
     <div h-full flex-col>
       <!-- 头部 -->
-      <div
-        h-56
-        pl-12
-        pr-24
-        justify-between
-        items-center
-        sticky
-        top-0
-        z-1
-        flex
-        border-b="1px solid #e8e8e8"
-      >
+      <div h-56 pl-12 pr-24 justify-between items-center sticky top-0 z-1 flex border-b="1px solid #e8e8e8">
         <div flex items-center text-12>
           <MenuCollapsed class="mr-8" />
           <div class="mr-8 h-20 w-4 rounded bg-primary" />

@@ -3,7 +3,7 @@ import { useRoute } from 'vue-router'
 
 const locale = ref('zh-cn')
 const btnConfig = reactive({
-  autoInsertSpace: true,
+  autoInsertSpace: true
 })
 const route = useRoute()
 const layouts = new Map()
@@ -11,9 +11,7 @@ const layouts = new Map()
 function getLayout(name) {
   // 利用map将加载过的layout缓存起来，防止重新加载layout导致页面闪烁
   if (layouts.get(name)) return layouts.get(name)
-  const layout = markRaw(
-    defineAsyncComponent(() => import(`@/layout/${name}/index.vue`))
-  )
+  const layout = markRaw(defineAsyncComponent(() => import(`@/layout/${name}/index.vue`)))
   layouts.set(name, layout)
   return layout
 }

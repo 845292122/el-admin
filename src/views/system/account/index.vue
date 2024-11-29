@@ -10,7 +10,7 @@ const queryRef = ref()
 const queryForm = ref({
   pageNo: 1,
   pageSize: 10,
-  merchantName: undefined,
+  merchantName: undefined
 })
 
 const tableData = ref([])
@@ -18,12 +18,12 @@ const loading = ref(false)
 const pageInfo = ref({
   total: 0,
   current: undefined,
-  pages: undefined,
+  pages: undefined
 })
 
 function getRecords() {
   loading.value = true
-  $AccountApi.getAccountList(queryForm.value).then((res) => {
+  $AccountApi.getAccountList(queryForm.value).then(res => {
     tableData.value = res.data.records
     pageInfo.value.total = res.data.total
     pageInfo.value.pageNo = res.data.pageNo
@@ -53,7 +53,7 @@ function handleRemove(aid) {
   ElMessageBox.confirm('确认删除账户?', '提示', {
     confirmButtonText: '确认',
     cancelButtonText: '取消',
-    type: 'warning',
+    type: 'warning'
   })
     .then(() => {
       $AccountApi.removeAccount(aid).then(() => {
@@ -80,10 +80,7 @@ getRecords()
     <template #default>
       <el-form :inline="true" :model="queryForm" ref="queryRef">
         <el-form-item label="商户名称" prop="merchantName">
-          <el-input
-            v-model="queryForm.merchantName"
-            placeholder="请输入商户名称"
-          />
+          <el-input v-model="queryForm.merchantName" placeholder="请输入商户名称" />
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="handleQuery">
@@ -100,11 +97,7 @@ getRecords()
           </el-button>
         </el-form-item>
       </el-form>
-      <PaginationTable
-        :tableData="tableData"
-        :loading="loading"
-        :pageInfo="pageInfo"
-      >
+      <PaginationTable :tableData="tableData" :loading="loading" :pageInfo="pageInfo">
         <el-table-column prop="id" label="账户ID" />
         <el-table-column prop="phone" label="手机号" />
         <el-table-column prop="status" label="状态">
@@ -124,20 +117,12 @@ getRecords()
         </el-table-column>
         <el-table-column prop="createdAt" label="创建时间" width="200">
           <template #default="scope">
-            {{
-              scope.row.createdAt
-                ? dayjs(scope.row.createdAt).format('YYYY-MM-DD HH:mm:ss')
-                : undefined
-            }}
+            {{ scope.row.createdAt ? dayjs(scope.row.createdAt).format('YYYY-MM-DD HH:mm:ss') : undefined }}
           </template>
         </el-table-column>
         <el-table-column prop="updatedAt" label="更新时间" width="200">
           <template #default="scope">
-            {{
-              scope.row.updatedAt
-                ? dayjs(scope.row.updatedAt).format('YYYY-MM-DD HH:mm:ss')
-                : undefined
-            }}
+            {{ scope.row.updatedAt ? dayjs(scope.row.updatedAt).format('YYYY-MM-DD HH:mm:ss') : undefined }}
           </template>
         </el-table-column>
         <el-table-column label="操作" align="center" width="100" fixed="right">
@@ -150,11 +135,7 @@ getRecords()
               </el-button>
             </el-tooltip>
             <el-tooltip content="删除" placement="top" v-if="scope.row.id != 1">
-              <el-button
-                link
-                type="primary"
-                @click="handleRemove(scope.row.id)"
-              >
+              <el-button link type="primary" @click="handleRemove(scope.row.id)">
                 <template #icon>
                   <i-bi:trash />
                 </template>

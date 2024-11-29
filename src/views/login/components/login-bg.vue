@@ -49,11 +49,7 @@ import CornerBottom from './corner-bottom.vue'
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: linear-gradient(
-    to right,
-    rgba(var(--primary-6), 0.07) 0%,
-    rgba(var(--primary-6), 0.04) 100%
-  );
+  background: linear-gradient(to right, rgba(var(--primary-6), 0.07) 0%, rgba(var(--primary-6), 0.04) 100%);
   animation: move 2.5s linear infinite;
 }
 
@@ -63,11 +59,7 @@ import CornerBottom from './corner-bottom.vue'
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  background: linear-gradient(
-    to right,
-    rgba(var(--primary-6), 0.08) 0%,
-    rgba(var(--primary-6), 0.04) 100%
-  );
+  background: linear-gradient(to right, rgba(var(--primary-6), 0.08) 0%, rgba(var(--primary-6), 0.04) 100%);
   animation: move 3s linear infinite;
 }
 
@@ -77,11 +69,7 @@ import CornerBottom from './corner-bottom.vue'
   width: 145px;
   height: 145px;
   border-radius: 50%;
-  background: linear-gradient(
-    to right,
-    rgba(var(--primary-6), 0.1) 0%,
-    rgba(var(--primary-6), 0.04) 100%
-  );
+  background: linear-gradient(to right, rgba(var(--primary-6), 0.1) 0%, rgba(var(--primary-6), 0.04) 100%);
   animation: move 2.5s linear infinite;
 }
 
@@ -91,11 +79,7 @@ import CornerBottom from './corner-bottom.vue'
   width: 160px;
   height: 160px;
   border-radius: 50%;
-  background: linear-gradient(
-    to right,
-    rgba(var(--primary-6), 0.02) 0%,
-    rgba(var(--primary-6), 0.04) 100%
-  );
+  background: linear-gradient(to right, rgba(var(--primary-6), 0.02) 0%, rgba(var(--primary-6), 0.04) 100%);
   animation: move 3.5s linear infinite;
 }
 

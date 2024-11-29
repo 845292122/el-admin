@@ -2,12 +2,12 @@
 const props = defineProps({
   startColor: {
     type: String,
-    default: '#28aff0',
+    default: '#28aff0'
   },
   endColor: {
     type: String,
-    default: '#120fc4',
-  },
+    default: '#120fc4'
+  }
 })
 </script>
 
@@ -32,11 +32,7 @@ const props = defineProps({
       </linearGradient>
     </defs>
     <g opacity="1">
-      <use
-        xlink:href="#path-2"
-        fill="url(#linearGradient-3)"
-        fill-opacity="1"
-      />
+      <use xlink:href="#path-2" fill="url(#linearGradient-3)" fill-opacity="1" />
     </g>
   </svg>
 </template>

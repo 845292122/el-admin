@@ -5,7 +5,7 @@ import { cloneDeep } from 'lodash'
 const authStore = useAuthStore()
 const { info } = authStore
 const infoForm = ref({
-  phone: undefined,
+  phone: undefined
 })
 function initInfo() {
   infoForm.value = cloneDeep(info)

@@ -13,7 +13,7 @@ const accountForm = ref({
   status: 1,
   remark: undefined,
   contact: undefined,
-  merchantName: undefined,
+  merchantName: undefined
 })
 
 function closeDialog() {
@@ -57,11 +57,7 @@ async function onSubmit() {
   >
     <el-form :model="accountForm" ref="accountRef" label-width="80px">
       <el-form-item prop="phone" label="手机号">
-        <el-input
-          v-model="accountForm.phone"
-          placeholder="请输入手机号"
-          maxlength="20"
-        />
+        <el-input v-model="accountForm.phone" placeholder="请输入手机号" maxlength="20" />
       </el-form-item>
       <el-form-item prop="status" label="状态">
         <el-radio-group v-model="accountForm.status">
@@ -70,22 +66,13 @@ async function onSubmit() {
         </el-radio-group>
       </el-form-item>
       <el-form-item prop="remark" label="备注">
-        <el-input
-          v-model="accountForm.remark"
-          placeholder="请输入备注"
-          style="width: 240px"
-          :rows="2"
-          type="textarea"
-        />
+        <el-input v-model="accountForm.remark" placeholder="请输入备注" style="width: 240px" :rows="2" type="textarea" />
       </el-form-item>
       <el-form-item prop="contact" label="联系人">
         <el-input v-model="accountForm.contact" placeholder="请输入联系人" />
       </el-form-item>
       <el-form-item prop="merchantName" label="商户">
-        <el-input
-          v-model="accountForm.merchantName"
-          placeholder="请输入商户名称"
-        />
+        <el-input v-model="accountForm.merchantName" placeholder="请输入商户名称" />
       </el-form-item>
     </el-form>
     <template #footer>

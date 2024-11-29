@@ -8,7 +8,7 @@ export const useAuthStore = defineStore('authStore', {
   state: () => ({
     token: TokenUtil.getToken(),
     permRoutes: [],
-    info: undefined,
+    info: undefined
   }),
   actions: {
     login(loginInfo) {
@@ -16,12 +16,12 @@ export const useAuthStore = defineStore('authStore', {
       return new Promise((resolve, reject) => {
         $AuthApi
           .login({ phone, password })
-          .then((res) => {
+          .then(res => {
             TokenUtil.setToken(res)
             this.token = res
             resolve()
           })
-          .catch((error) => {
+          .catch(error => {
             reject(error)
           })
       })
@@ -30,7 +30,7 @@ export const useAuthStore = defineStore('authStore', {
       return new Promise((resolve, reject) => {
         $AuthApi
           .getInfo()
-          .then((res) => {
+          .then(res => {
             this.info = res
             const { isAdmin } = res
             const cloneRoutes = cloneDeep(dynamicRoutes)
@@ -38,7 +38,7 @@ export const useAuthStore = defineStore('authStore', {
             this.permRoutes = permRoutes
             resolve(permRoutes)
           })
-          .catch((error) => {
+          .catch(error => {
             reject(error)
           })
       })
@@ -48,6 +48,6 @@ export const useAuthStore = defineStore('authStore', {
       this.permRoutes = []
       this.info = undefined
       TokenUtil.removeToken()
-    },
-  },
+    }
+  }
 })

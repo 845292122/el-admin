@@ -2,18 +2,18 @@
 const props = defineProps({
   tableData: Array,
   loading: Boolean,
-  pageInfo: Object,
+  pageInfo: Object
 })
 
 const emit = defineEmits(['selection-event'])
 
 const headerStyle = {
-  background: '#f8f8f9',
+  background: '#f8f8f9'
 }
 
 /** 多选事件 */
 function handleSelectionChange(selection) {
-  const selectIds = selection.map((item) => item.id)
+  const selectIds = selection.map(item => item.id)
   emit('selection-event', selectIds)
 }
 </script>

@@ -4,7 +4,7 @@ export const RouteUtil = {
     if (isAdmin === 1) {
       adminBool = true
     }
-    return routes.filter((route) => {
+    return routes.filter(route => {
       if (Array.isArray(route.children)) {
         route.children = RouteUtil.filterAuthRoutes(route.children, isAdmin)
       }
@@ -12,8 +12,8 @@ export const RouteUtil = {
       return adminBool === route.requireAdmin
     })
   },
-  filterHiddenRoutes: (routes) => {
-    return routes.filter((route) => {
+  filterHiddenRoutes: routes => {
+    return routes.filter(route => {
       if (route.hidden && route.hidden === true) {
         return false
       }
@@ -22,5 +22,5 @@ export const RouteUtil = {
       }
       return true
     })
-  },
+  }
 }

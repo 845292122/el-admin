@@ -15,26 +15,22 @@ const title = import.meta.env.VITE_APP_TITLE
 const loginForm = ref({
   phone: '',
   password: '',
-  rememberMe: true,
+  rememberMe: true
 })
 const loading = ref(false)
 const loginRules = {
   phone: [{ required: true, trigger: 'blur', message: '请输入手机号' }],
-  password: [{ required: true, trigger: 'blur', message: '请输入密码' }],
+  password: [{ required: true, trigger: 'blur', message: '请输入密码' }]
 }
 
 function handleLogin() {
-  loginRef.value.validate((valid) => {
+  loginRef.value.validate(valid => {
     if (valid) {
       loading.value = true
       // 记住我
       if (loginForm.value.rememberMe) {
         _localStorage.setItem(PHONE_KEY, loginForm.value.phone, EXPIRE_MS)
-        _localStorage.setItem(
-          PWD_KEY,
-          jscrypt.encrypt(loginForm.value.password),
-          EXPIRE_MS
-        )
+        _localStorage.setItem(PWD_KEY, jscrypt.encrypt(loginForm.value.password), EXPIRE_MS)
         _localStorage.setItem(REM_KEY, loginForm.value.rememberMe, EXPIRE_MS)
       } else {
         _localStorage.removeItem(PHONE_KEY)
@@ -61,9 +57,8 @@ function initLoginInfo() {
   const loginRem = _localStorage.getItem(REM_KEY)
   loginForm.value = {
     phone: loginPhone === null ? loginForm.value.phone : loginPhone,
-    password:
-      loginPwd === null ? loginForm.value.password : jscrypt.decrypt(loginPwd),
-    rememberMe: loginRem === null ? false : Boolean(loginRem),
+    password: loginPwd === null ? loginForm.value.password : jscrypt.decrypt(loginPwd),
+    rememberMe: loginRem === null ? false : Boolean(loginRem)
   }
 }
 
@@ -77,22 +72,14 @@ function initLoginInfo() {
     <el-form ref="loginRef" :model="loginForm" :rules="loginRules" w-full p-60>
       <h2 text-center mb-20 text-20>{{ title }}</h2>
       <el-form-item prop="phone">
-        <el-input
-          v-model="loginForm.phone"
-          autocomplete="off"
-          placeholder="手机号"
-        >
+        <el-input v-model="loginForm.phone" autocomplete="off" placeholder="手机号">
           <template #prefix>
             <i-bi:person-circle />
           </template>
         </el-input>
       </el-form-item>
       <el-form-item prop="password">
-        <el-input
-          v-model="loginForm.password"
-          type="password"
-          placeholder="密码"
-        >
+        <el-input v-model="loginForm.password" type="password" placeholder="密码">
           <template #prefix>
             <i-bi:shield-lock />
           </template>
@@ -102,14 +89,7 @@ function initLoginInfo() {
         <el-checkbox v-model="loginForm.rememberMe">记住密码</el-checkbox>
       </el-tooltip>
       <el-form-item>
-        <el-button
-          w-full
-          type="primary"
-          :loading="loading"
-          @click="handleLogin"
-        >
-          登 录
-        </el-button>
+        <el-button w-full type="primary" :loading="loading" @click="handleLogin"> 登 录 </el-button>
       </el-form-item>
     </el-form>
   </div>

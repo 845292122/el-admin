@@ -10,7 +10,7 @@ let isRelogin = false
 const router = useRouter()
 
 const service = axios.create({
-  baseURL: import.meta.env.VITE_APP_BASE_API,
+  baseURL: import.meta.env.VITE_APP_BASE_API
   // timeout: 10000
 })
 
@@ -18,7 +18,7 @@ const service = axios.create({
  * 请求拦截器
  */
 service.interceptors.request.use(
-  (req) => {
+  req => {
     const token = TokenUtil.getToken()
     if (token) {
       req.headers['Authorization'] = 'Bearer ' + token
@@ -26,7 +26,7 @@ service.interceptors.request.use(
 
     return req
   },
-  (err) => {
+  err => {
     Promise.reject(err)
   }
 )
@@ -35,14 +35,11 @@ service.interceptors.request.use(
  * 响应拦截器
  */
 service.interceptors.response.use(
-  (resp) => {
+  resp => {
     const code = resp.data.code || 200
     const msg = resp.data.msg
 
-    if (
-      resp.request.responseType === 'blob' ||
-      resp.request.responseType === 'arraybuffer'
-    ) {
+    if (resp.request.responseType === 'blob' || resp.request.responseType === 'arraybuffer') {
       return resp.data
     }
 
@@ -52,7 +49,7 @@ service.interceptors.response.use(
       ElMessageBox.confirm('登录状态已过期，请重新登录', '系统提示', {
         confirmButtonText: '重新登录',
         cancelButtonText: '取消',
-        type: 'warning',
+        type: 'warning'
       })
         .then(() => {
           isRelogin = false
@@ -70,7 +67,7 @@ service.interceptors.response.use(
       return Promise.resolve(resp.data?.data)
     }
   },
-  (err) => {
+  err => {
     let { msg } = err
     if (msg == 'Network Error') {
       msg = '后端接口连接异常'
@@ -88,20 +85,20 @@ service.interceptors.response.use(
 export function download(url, params, filename, config) {
   downloadLoadingInstance = ElLoading.service({
     text: '正在下载数据，请稍候',
-    background: 'rgba(0, 0, 0, 0.7)',
+    background: 'rgba(0, 0, 0, 0.7)'
   })
   return service
     .post(url, params, {
       transformRequest: [
-        (params) => {
+        params => {
           return tansParams(params)
-        },
+        }
       ],
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       responseType: 'blob',
-      ...config,
+      ...config
     })
-    .then(async (data) => {
+    .then(async data => {
       const isBlob = blobValidate(data)
       if (isBlob) {
         const blob = new Blob([data])
@@ -109,13 +106,12 @@ export function download(url, params, filename, config) {
       } else {
         const resText = await data.text()
         const rspObj = JSON.parse(resText)
-        const errMsg =
-          errorCode[rspObj.code] || rspObj.msg || errorCode['default']
+        const errMsg = errorCode[rspObj.code] || rspObj.msg || errorCode['default']
         ElMessage.error(errMsg)
       }
       downloadLoadingInstance.close()
     })
-    .catch((r) => {
+    .catch(r => {
       ElMessage.error('下载文件出现错误，请联系管理员！')
       downloadLoadingInstance.close()
     })

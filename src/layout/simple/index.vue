@@ -7,13 +7,7 @@ const appStore = useAppStore()
 
 <template>
   <div wh-full flex>
-    <div
-      flex-col
-      flex-shrink-0
-      transition-width-300
-      :class="appStore.menuCollapsed ? 'w-64' : 'w-220'"
-      class="aside-wrapper"
-    >
+    <div flex-col flex-shrink-0 transition-width-300 :class="appStore.menuCollapsed ? 'w-64' : 'w-220'" class="aside-wrapper">
       <Sidebar />
     </div>
     <div w-0 flex-col flex-1>
