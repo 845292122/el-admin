@@ -1,8 +1,8 @@
-# MMVN前端模板
+# EL-Admin
 
-## 配套后端
+## 后端
 
-https://github.com/845292122/mmvn-serve
+https://github.com/845292122/koa-serve
 
 ## 技术栈
 
@@ -10,7 +10,3 @@ https://github.com/845292122/mmvn-serve
 - element-plus
 - unocss
 - pinia
-
-## 后端
-
-https://github.com/845292122/koa-serve
